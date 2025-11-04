@@ -18,7 +18,7 @@ Requires:         gawk                       \
 
 Name:             initscripts
 Summary:          Basic support for legacy System V init scripts
-Version:          10.00.18
+Version:          10.00.19
 Release:          1%{?dist}
 
 License:          GPLv2
@@ -202,7 +202,6 @@ support. Additional configuration is required after installation.
 install -m 0755 -d %{buildroot}%{_docdir}/network-scripts
 
 ln -s  %{_docdir}/%{name}/sysconfig.txt %{buildroot}%{_docdir}/network-scripts/
-ln -sr %{_mandir}/man8/ifup.8           %{buildroot}%{_mandir}/man8/ifdown.8
 
 # We are now using alternatives approach to better co-exist with NetworkManager:
 touch %{buildroot}%{_sbindir}/ifup
@@ -346,6 +345,9 @@ fi
 # =============================================================================
 
 %changelog
+* Tue Sep 23 2025 Jan Macku <jamacku@redhat.com> - 10.00.19-1
+- man: add ifdown.8
+
 * Wed Aug 10 2022 Jan Macku <jamacku@redhat.com> - 10.00.18-1
 - ci: Update `.packit.yml` to run on `c8s`
 - ci: Use Differential ShellCheck action
